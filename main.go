@@ -17,5 +17,7 @@ func main() {
 
 	routes.InitWebHandlers(e)
 
+	e.Static("/", "public")
+
 	e.Logger.Fatal(e.Start(":8080"))
 }

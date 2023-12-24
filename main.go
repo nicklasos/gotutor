@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gotutor/handlers"
+	"gotutor/routes"
 	"gotutor/utils"
 
 	"github.com/labstack/echo/v4"
@@ -15,8 +15,7 @@ func main() {
 
 	e.Renderer = utils.NewTemplateRenderer()
 
-	e.GET("/", handlers.IndexHandler)
-	e.GET("/test", handlers.TestHandler)
+	routes.InitWebHandlers(e)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }

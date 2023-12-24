@@ -9,6 +9,8 @@ import (
 )
 
 func main() {
+	utils.InitConfig()
+
 	e := echo.New()
 
 	e.Use(middleware.Logger())

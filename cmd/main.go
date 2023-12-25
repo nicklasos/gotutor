@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gotutor/routes"
+	"gotutor/handlers"
 	"gotutor/utils"
 
 	"github.com/labstack/echo/v4"
@@ -13,11 +13,13 @@ func main() {
 
 	e := echo.New()
 
+	e.HTTPErrorHandler = handlers.CustomHTTPErrorHandler
+
 	e.Use(middleware.Logger())
 
 	e.Renderer = utils.NewTemplateRenderer()
 
-	routes.InitWebHandlers(e)
+	handlers.SetupWebHandlers(e)
 
 	e.Static("/", "public")
 

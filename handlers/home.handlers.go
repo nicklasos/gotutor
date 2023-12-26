@@ -3,6 +3,7 @@ package handlers
 import (
 	"gotutor/services"
 	"gotutor/utils"
+	"gotutor/views"
 
 	"github.com/labstack/echo/v4"
 )
@@ -21,5 +22,5 @@ func (h *HomeHandler) Index(c echo.Context) error {
 	foo := utils.GetConfig().Foo
 	bar := h.menu.Name
 
-	return c.String(200, "home page "+foo+" "+bar)
+	return views.Render(c, 200, views.Home(foo, bar))
 }

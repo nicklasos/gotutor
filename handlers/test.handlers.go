@@ -1,9 +1,7 @@
 package handlers
 
 import (
-	"fmt"
 	"gotutor/views"
-	"net/http"
 
 	"github.com/labstack/echo/v4"
 )
@@ -17,11 +15,5 @@ func NewTestHandler(name string) *TestHandler {
 }
 
 func (h *TestHandler) Index(c echo.Context) error {
-	data := views.Data{
-		"name": h.Name,
-	}
-
-	fmt.Println(h.Name)
-
-	return c.Render(http.StatusOK, "index.html", data)
+	return views.Render(c, 200, views.Test(h.Name))
 }

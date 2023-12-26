@@ -18,8 +18,6 @@ func main() {
 
 	e.Use(middleware.Logger())
 
-	e.Renderer = utils.NewTemplateRenderer()
-
 	routes.SetupWebHandlers(e)
 
 	e.Static("/", "public")

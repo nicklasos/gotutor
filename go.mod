@@ -7,6 +7,7 @@ require github.com/labstack/echo/v4 v4.11.4
 require github.com/joho/godotenv v1.5.1 // indirect
 
 require (
+	github.com/a-h/templ v0.2.501
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/google/wire v0.5.0
 	github.com/labstack/echo v3.3.10+incompatible

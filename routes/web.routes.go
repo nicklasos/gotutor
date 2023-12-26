@@ -9,7 +9,7 @@ import (
 func SetupWebHandlers(e *echo.Echo) {
 
 	home := di.InitializeHomeHandler("Home")
-	test := di.InitializeTestHandler("Nick.")
+	test := di.InitializeTestHandler("Nick")
 
 	e.GET("/", home.Index)
 	e.GET("/test", test.Index)

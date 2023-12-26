@@ -1,13 +1,15 @@
-package handlers
+package routes
 
 import (
+	"gotutor/di"
+
 	"github.com/labstack/echo/v4"
 )
 
 func SetupWebHandlers(e *echo.Echo) {
 
-	home := NewHomeHandler()
-	test := NewTestHandler()
+	home := di.InitializeHomeHandler("Home")
+	test := di.InitializeTestHandler("Nick.")
 
 	e.GET("/", home.Index)
 	e.GET("/test", test.Index)

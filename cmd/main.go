@@ -2,6 +2,7 @@ package main
 
 import (
 	"gotutor/handlers"
+	"gotutor/routes"
 	"gotutor/utils"
 
 	"github.com/labstack/echo/v4"
@@ -19,7 +20,7 @@ func main() {
 
 	e.Renderer = utils.NewTemplateRenderer()
 
-	handlers.SetupWebHandlers(e)
+	routes.SetupWebHandlers(e)
 
 	e.Static("/", "public")
 

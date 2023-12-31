@@ -7,6 +7,7 @@
 package di
 
 import (
+	"gorm.io/gorm"
 	"gotutor/handlers"
 	"gotutor/services"
 )
@@ -19,7 +20,7 @@ func InitializeHomeHandler(name string) *handlers.HomeHandler {
 	return homeHandler
 }
 
-func InitializeTestHandler(name string) *handlers.TestHandler {
-	testHandler := handlers.NewTestHandler(name)
+func InitializeTestHandler(db *gorm.DB) *handlers.TestHandler {
+	testHandler := handlers.NewTestHandler(db)
 	return testHandler
 }

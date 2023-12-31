@@ -1,6 +1,7 @@
 package main
 
 import (
+	"gotutor/db"
 	"gotutor/handlers"
 	"gotutor/routes"
 	"gotutor/utils"
@@ -12,13 +13,15 @@ import (
 func main() {
 	utils.InitConfig()
 
+	db := db.NewDB()
+
 	e := echo.New()
 
 	e.HTTPErrorHandler = handlers.CustomHTTPErrorHandler
 
 	e.Use(middleware.Logger())
 
-	routes.SetupWebHandlers(e)
+	routes.SetupWebHandlers(e, db)
 
 	e.Static("/", "public")
 

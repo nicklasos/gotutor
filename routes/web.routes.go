@@ -8,8 +8,8 @@ import (
 
 func SetupWebHandlers(e *echo.Echo) {
 
-	home := di.InitializeHomeHandler("Home")
-	test := di.InitializeTestHandler()
+	home := di.InitHomeHandler("Home")
+	test := di.InitTestHandler()
 
 	e.GET("/", home.Index)
 	e.GET("/test", test.Index)

@@ -14,13 +14,13 @@ import (
 
 // Injectors from wire.go:
 
-func InitializeHomeHandler(name string) *handlers.HomeHandler {
+func InitHomeHandler(name string) *handlers.HomeHandler {
 	menuService := services.NewMenuService()
 	homeHandler := handlers.NewHomeHandler(menuService)
 	return homeHandler
 }
 
-func InitializeTestHandler() *handlers.TestHandler {
+func InitTestHandler() *handlers.TestHandler {
 	gormDB := db.NewDB()
 	menuService := services.NewMenuService()
 	testHandler := handlers.NewTestHandler(gormDB, menuService)

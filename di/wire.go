@@ -11,12 +11,12 @@ import (
 	"github.com/google/wire"
 )
 
-func InitializeHomeHandler(name string) *handlers.HomeHandler {
+func InitHomeHandler(name string) *handlers.HomeHandler {
 	wire.Build(handlers.NewHomeHandler, services.NewMenuService)
 	return &handlers.HomeHandler{}
 }
 
-func InitializeTestHandler() *handlers.TestHandler {
+func InitTestHandler() *handlers.TestHandler {
 	wire.Build(handlers.NewTestHandler, services.NewMenuService, db.NewDB)
 	return &handlers.TestHandler{}
 }

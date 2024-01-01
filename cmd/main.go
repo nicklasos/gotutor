@@ -4,6 +4,7 @@ import (
 	"gotutor/db"
 	"gotutor/handlers"
 	"gotutor/routes"
+	"gotutor/services"
 	"gotutor/utils"
 
 	"github.com/labstack/echo/v4"
@@ -14,6 +15,8 @@ func main() {
 	utils.InitConfig()
 
 	db.InitDB()
+
+	services.InitSessions()
 
 	e := echo.New()
 

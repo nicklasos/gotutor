@@ -4,11 +4,11 @@
 package di
 
 import (
+	"gotutor/db"
 	"gotutor/handlers"
 	"gotutor/services"
 
 	"github.com/google/wire"
-	"gorm.io/gorm"
 )
 
 func InitializeHomeHandler(name string) *handlers.HomeHandler {
@@ -16,7 +16,7 @@ func InitializeHomeHandler(name string) *handlers.HomeHandler {
 	return &handlers.HomeHandler{}
 }
 
-func InitializeTestHandler(db *gorm.DB) *handlers.TestHandler {
-	wire.Build(handlers.NewTestHandler)
+func InitializeTestHandler() *handlers.TestHandler {
+	wire.Build(handlers.NewTestHandler, services.NewMenuService, db.NewDB)
 	return &handlers.TestHandler{}
 }

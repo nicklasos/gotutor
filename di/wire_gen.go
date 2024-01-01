@@ -7,7 +7,7 @@
 package di
 
 import (
-	"gorm.io/gorm"
+	"gotutor/db"
 	"gotutor/handlers"
 	"gotutor/services"
 )
@@ -15,12 +15,14 @@ import (
 // Injectors from wire.go:
 
 func InitializeHomeHandler(name string) *handlers.HomeHandler {
-	menuService := services.NewMenuService(name)
+	menuService := services.NewMenuService()
 	homeHandler := handlers.NewHomeHandler(menuService)
 	return homeHandler
 }
 
-func InitializeTestHandler(db *gorm.DB) *handlers.TestHandler {
-	testHandler := handlers.NewTestHandler(db)
+func InitializeTestHandler() *handlers.TestHandler {
+	gormDB := db.NewDB()
+	menuService := services.NewMenuService()
+	testHandler := handlers.NewTestHandler(gormDB, menuService)
 	return testHandler
 }

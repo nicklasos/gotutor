@@ -20,7 +20,7 @@ func NewHomeHandler(menu *services.MenuService) *HomeHandler {
 
 func (h *HomeHandler) Index(c echo.Context) error {
 	foo := utils.GetConfig().Foo
-	bar := h.menu.Name
+	bar := "Bar"
 
 	return views.Render(c, 200, views.Home(foo, bar))
 }

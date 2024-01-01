@@ -10,13 +10,18 @@ type User struct {
 	Name string
 }
 
-func NewDB() *gorm.DB {
-	db, err := gorm.Open(sqlite.Open("db/test.db"), &gorm.Config{})
+var db *gorm.DB
+
+func InitDB() {
+	var err error
+	db, err = gorm.Open(sqlite.Open("db/test.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
 
 	db.AutoMigrate(&User{})
+}
 
+func NewDB() *gorm.DB {
 	return db
 }

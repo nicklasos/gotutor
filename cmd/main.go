@@ -13,7 +13,7 @@ import (
 func main() {
 	utils.InitConfig()
 
-	db := db.NewDB()
+	db.InitDB()
 
 	e := echo.New()
 
@@ -21,7 +21,7 @@ func main() {
 
 	e.Use(middleware.Logger())
 
-	routes.SetupWebHandlers(e, db)
+	routes.SetupWebHandlers(e)
 
 	e.Static("/", "public")
 

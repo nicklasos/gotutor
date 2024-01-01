@@ -4,13 +4,12 @@ import (
 	"gotutor/di"
 
 	"github.com/labstack/echo/v4"
-	"gorm.io/gorm"
 )
 
-func SetupWebHandlers(e *echo.Echo, db *gorm.DB) {
+func SetupWebHandlers(e *echo.Echo) {
 
 	home := di.InitializeHomeHandler("Home")
-	test := di.InitializeTestHandler(db)
+	test := di.InitializeTestHandler()
 
 	e.GET("/", home.Index)
 	e.GET("/test", test.Index)

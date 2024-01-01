@@ -1,6 +1,8 @@
 # gotutor
 Spoken English Tutor
 
+![logo](logo.png)
+
 ### Installation
 ```
 go install github.com/cosmtrek/air@latest

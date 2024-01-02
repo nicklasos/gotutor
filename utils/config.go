@@ -8,7 +8,8 @@ import (
 )
 
 type Config struct {
-	Foo string
+	APP_SECRET string
+	APP_ENV    string
 
 	GOOGLE_CLIENT_ID     string
 	GOOGLE_CLIENT_SECRET string
@@ -24,7 +25,8 @@ func InitConfig() {
 	}
 
 	config = &Config{
-		Foo:                  os.Getenv("FOO"),
+		APP_SECRET:           os.Getenv("APP_SECRET"),
+		APP_ENV:              os.Getenv("APP_ENV"),
 		GOOGLE_CLIENT_ID:     os.Getenv("GOOGLE_CLIENT_ID"),
 		GOOGLE_CLIENT_SECRET: os.Getenv("GOOGLE_CLIENT_SECRET"),
 		GOOGLE_CALLBACK_URL:  os.Getenv("GOOGLE_CALLBACK_URL"),

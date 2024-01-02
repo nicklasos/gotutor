@@ -16,9 +16,9 @@ func main() {
 
 	db.InitDB()
 
-	services.InitSessions()
-
 	e := echo.New()
+
+	services.InitSessions(e)
 
 	e.HTTPErrorHandler = handlers.CustomHTTPErrorHandler
 
